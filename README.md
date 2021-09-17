@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+Vue的vant库比较不错，
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 为什么用3X版本的更改主题颜色方法？因为利用的是less-loader，脚手架可以解析less文件了。
+less@3.12.2 less-loader@7.1.0
 
-## Available Scripts
+### 在src下建立util(tools)文件夹，把修改font-size写进去，保持index.html清洁
 
-In the project directory, you can run:
+### 不用在less中写345/@font计算rem，利用插件帮我们计算，因为webpack强大的功能，设置好交给他计算就行了。
+postcss-px2rem包，在congfig-overrides.js中配置
 
-### `yarn start`
+### src下创建congif配置文件，作为配置整个项目的文件。创建routes文件，把所有路由写在这里与数组的形式暴露出去，在组件中遍历创建Route
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### antd-mobile中的Button边框去不掉
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+### 按钮的disable拦不住onTocherStart，拦的住onClick。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 巧用return，搭配if筛选，拦下不符合条件的.
 
-### `yarn build`
+### 新建api文件夹，里面是和接口有关的文件，ajax.js是二次封装的axios，设置了拦截器统一处理错误和数据
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 在api文件夹里创建index.js，用来发送请求，任何地方调用他就能发请求，省的发一次写一次，万一地址变了，不好维护，
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Token，一个唯一的用户身份标识，登录成功时服务器返回一个Token，包含用户的身份信息，退出登录销毁Token。Token是可以重新生成的，是有过期时间的。   有的网站把Token拆成十几份，每一份都加密，防止Token丢失，网站通过cookie把Token给用户，再次访问这个网站，自动就带上cookie了
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 授权第三方登陆，比如在自己的网站上，使用github账号的登陆，只会接收到github账号的一些公开的数据比如头像昵称，隐私数据不会被拿到。  自己的网站拿着github给的网站唯一标识和机密码识别网站身份。
 
-### `yarn eject`
+## Client ID       --网站标识
+aa502a3b82bbd3b61fe9
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 网站机密码
+a40283c337df66893fe70a8d1c6c8079d6e931fd
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 查询授权码
+code=52bba0431ad8beea3036，每个用户的都不一样
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 返回第三方Token给我们的浏览器
+access_token=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&scope=&token_type=bearer
+用第一组key-value
+github授权：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
