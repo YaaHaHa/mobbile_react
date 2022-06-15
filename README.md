@@ -26,15 +26,15 @@ postcss-px2rem包，在congfig-overrides.js中配置
 ### 授权第三方登陆，比如在自己的网站上，使用github账号的登陆，只会接收到github账号的一些公开的数据比如头像昵称，隐私数据不会被拿到。  自己的网站拿着github给的网站唯一标识和机密码识别网站身份。
 
 ## Client ID       --网站标识
-aa502a3b82bbd3b61fe9
+***
 
 ## 网站机密码
-a40283c337df66893fe70a8d1c6c8079d6e931fd
+***
 
 ## 查询授权码
-code=52bba0431ad8beea3036，每个用户的都不一样
+***，每个用户的都不一样
 
 ## 返回第三方Token给我们的浏览器
-access_token=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&scope=&token_type=bearer
+**
 用第一组key-value
-github授权：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
+github授权：**
